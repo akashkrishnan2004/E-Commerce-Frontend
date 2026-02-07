@@ -1,0 +1,33 @@
+.about-container {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.about-content {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  line-height: 1.7;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-content h1 {
+  font-size: 2rem;
+  /* color: #333; */
+  color: #007bff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.about-content strong {
+  color: #007bff;
+}

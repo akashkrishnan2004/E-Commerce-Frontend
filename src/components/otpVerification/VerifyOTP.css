@@ -1,0 +1,75 @@
+.verify-otp-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+.verify-card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 550px;
+  text-align: center;
+}
+
+.verify-card h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.otp-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.otp-box input {
+  width: 40px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.otp-box input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 3px #007bff;
+}
+
+.verify-card button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background 0.3s;
+}
+
+.verify-card button:disabled {
+  background-color: #7ab5ff;
+  cursor: not-allowed;
+}
+
+.verify-card .resend-btn {
+  background: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.verify-card .resend-btn:hover:not(:disabled) {
+  background-color: #007bff;
+  color: white;
+}

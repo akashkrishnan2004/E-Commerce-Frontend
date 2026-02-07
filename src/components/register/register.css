@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.register-container {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  overflow-y: hidden;
+}
+
+.register-image-card {
+  width: 50%;
+  background-color: red;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-image-card img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.register-image-card-des {
+  position: absolute;
+}
+
+.register-image-card .register-head, .register-para {
+  color: #fff;
+  text-align: center;
+}
+
+.register-card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.register-card h2 {
+  margin: 0;
+}
+
+.register-card p {
+  color: black;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.register-form .profile-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.register-form .image-file {
+  display: none;
+}
+
+.register-form-name {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.register-form-name input {
+  flex: 1;
+}
+
+.register-form .register-form-name {
+  display: flex;
+  gap: 5px;
+}
+
+.register-form input,
+.register-form button {
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 15px;
+}
+.register-form input {
+  border: 1px solid rgb(183, 178, 178);
+}
+
+.register-form input:focus {
+  outline: 1px solid #007bff;
+}
+
+.register-form button {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.register-form button:hover {
+  background-color: #0056b3;
+}
+
+.register-form input::placeholder {
+  color: #aaa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.register-form .error-message {
+  font-size: 13px;
+  color: red;
+}
+
+.register-form .already-login {
+  font-size: 15px;
+}
+
+.register-form .already-login a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.register-form .already-login a:hover {
+  text-decoration: underline;
+  color: #007bff;
+}
+/* 
+@media screen and (max-width: 768px) {
+  .register-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .register-image-card {
+    display: none;
+  }
+
+  .register-card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .register-form-name {
+    flex-direction: column;
+  }
+} */

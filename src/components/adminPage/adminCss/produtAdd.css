@@ -1,0 +1,88 @@
+.add-product-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  background-color: #f8fafc;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-container h1 {
+  text-align: center;
+  /* color: #0f172a; */
+  color: #007bff;
+  margin-bottom: 2rem;
+}
+
+.add-product-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.add-product-container form input,
+textarea,
+select {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  background-color: #ffffff;
+  transition: 0.2s ease-in-out;
+}
+
+.add-product-container form input:focus,
+textarea:focus,
+select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+}
+
+.add-product-container form textarea {
+  resize: vertical;
+  min-height: 100px;
+  resize: none;
+}
+
+.add-product-container form .image-upload-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.add-product-container form .image-upload-group input[type="file"] {
+  background-color: #ffffff;
+  padding: 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-product-container form button[type="submit"] {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-product-container form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .add-product-container {
+    margin: 1rem;
+    padding: 1.2rem;
+  }
+
+  .add-product-container form input,
+  textarea,
+  button {
+    font-size: 0.95rem;
+  }
+}
