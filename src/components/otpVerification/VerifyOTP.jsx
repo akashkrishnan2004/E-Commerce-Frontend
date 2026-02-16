@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 import "../otpVerification/VerifyOTP.css";
 
 export default function VerifyOTP () {
@@ -40,7 +42,7 @@ export default function VerifyOTP () {
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:3000/api/verify-otp", {
+      const res = await axios.post(`${API_URL}/api/verify-otp`, {
         email: state?.email,
         emailOTP,
       });
@@ -57,7 +59,7 @@ export default function VerifyOTP () {
   const handleResendOTP = async () => {
     setResendLoading(true);
     try {
-      const res = await axios.post("http://localhost:3000/api/resend-otp", {
+      const res = await axios.post(`${API_URL}/api/resend-otp`, {
         email: state?.email,
       });
 

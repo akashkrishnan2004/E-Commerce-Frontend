@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 // import { ToastContainer, toast } from "react-toastify";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 import "./css/forgotPassword.css";
 
 export default function ForgotPassword() {
@@ -15,7 +17,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:3000/api/send-otp", { email });
+      await axios.post(`${API_URL}/api/send-otp`, { email });
       toast.success("OTP sent to your email");
       navigate("/reset-password", { state: { email } });
     } catch (error) {

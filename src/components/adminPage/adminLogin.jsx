@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
+const API_URL =  import.meta.env.VITE_API_URL
+
 import "./adminCss/adminLogin.css";
 
 export default function AdminLogin() {
@@ -19,7 +21,7 @@ export default function AdminLogin() {
     }
 
     try {
-      const res = await axios.post("http://localhost:3000/admin/login", {
+      const res = await axios.post(`${API_URL}/admin/login`, {
         username,
         password,
       });

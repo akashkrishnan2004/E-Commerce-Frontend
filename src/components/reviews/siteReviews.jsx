@@ -1,23 +1,8 @@
-// import axios from "axios";
-// import { useEffect, useState } from "react";
-
-// export default function SiteReviews() {
-//   const [reviews, setReviews] = useState([]);
-
-//   useEffect(() => {
-//     const getReviews = async () => {};
-//   });
-
-//   return (
-//     <div>
-//       <h1>Reviews</h1>
-//     </div>
-//   );
-// }
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+const API_URL =  import.meta.env.VITE_API_URL
 
 import "./SiteReviews.css";
 
@@ -31,10 +16,10 @@ export default function SiteReviews() {
     const getReviews = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/get-all-messages"
+          `${API_URL}/api/get-all-messages`,
         );
         const visibleReviews = response.data.filter(
-          (review) => review.showOnSite
+          (review) => review.showOnSite,
         );
         setReviews(visibleReviews);
       } catch (error) {

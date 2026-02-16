@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 import avatar from "../images/Avatar.png";
 
+const API_URL =  import.meta.env.VITE_API_URL
+
 import "./adminCss/appReviews.css";
 
 export default function AdminReviews() {
@@ -25,7 +27,7 @@ export default function AdminReviews() {
   const getReviews = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/get-all-messages"
+        `${API_URL}/api/get-all-messages`
       );
       setReviews(response.data);
       // console.log(response.data);
@@ -44,7 +46,7 @@ export default function AdminReviews() {
     if (!window.confirm("Are you sure you want to delete this review?")) return;
 
     try {
-      await axios.delete(`http://localhost:3000/api/delete-message/${id}`);
+      await axios.delete(`${API_URL}/api/delete-message/${id}`);
       toast.success("Review deleted");
       getReviews();
     } catch (err) {
@@ -56,7 +58,7 @@ export default function AdminReviews() {
   const handleToggleShow = async (id) => {
     try {
       const response = await axios.patch(
-        `http://localhost:3000/api/toggle-show-message/${id}`
+        `${API_URL}/api/toggle-show-message/${id}`
       );
       toast.success(
         response.data.showOnSite

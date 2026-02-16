@@ -3,6 +3,8 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios, { all } from "axios";
 
+const API_URL =  import.meta.env.VITE_API_URL
+
 import "./dashboard.css";
 
 export default function Dashboard() {
@@ -15,6 +17,8 @@ export default function Dashboard() {
   const [currentPage, setCurrentPage] = useState(pageParam);
 
   const productsPerPage = 4;
+  
+  // console.log(API_URL);
 
   const navigate = useNavigate();
 
@@ -22,7 +26,7 @@ export default function Dashboard() {
     const getProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/get-products"
+          `${API_URL}/api/get-products`
         );
         const allowedProducts = response.data.products.filter(
           (allowed) => allowed.showOnSite

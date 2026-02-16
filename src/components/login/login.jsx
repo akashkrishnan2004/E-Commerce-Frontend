@@ -1,16 +1,10 @@
-// export default function Login() {
-//   return (
-//     <div>
-//       <h1>Login</h1>
-//     </div>
-//   );
-// }
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 // import { ToastContainer, toast } from "react-toastify";
+
+const API_URL = import.meta.env.VITE_API_URL
 
 import "./login.css";
 
@@ -33,7 +27,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:3000/api/login", formData);
+      const res = await axios.post(`${API_URL}/api/login`, formData);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("User Id", res.data.userId);
       toast.success(res.data.message);

@@ -1,15 +1,9 @@
-// export default function Contact() {
-//   return (
-//     <div>
-//       <h1>Contact</h1>
-//     </div>
-//   );
-// }
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 // import { ToastContainer, toast } from "react-toastify";
+
+const API_URL = import.meta.env.VITE_API_URL
 
 import "./Contact.css";
 
@@ -24,7 +18,7 @@ export default function Contact() {
     const getUserData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/get-user/${user_id}`
+          `${API_URL}/api/get-user/${user_id}`,
         );
         setUserData(response.data.user);
       } catch (error) {
@@ -50,8 +44,8 @@ export default function Contact() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/contact",
-        payload
+        `${API_URL}/api/contact`,
+        payload,
       );
       toast.success(res.data.message || "Message sent successfully!");
       setMessage("");

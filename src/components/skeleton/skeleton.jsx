@@ -1,17 +1,3 @@
-// // LoadingSkeleton.js
-// import Skeleton from "react-loading-skeleton";
-// import "react-loading-skeleton/dist/skeleton.css";
-
-// export default function LoadingSkeleton() {
-//   return (
-//     <div style={{ padding: "20px" }}>
-//       <Skeleton height={200} />
-//       <Skeleton height={20} width={300} style={{ marginTop: "10px" }} />
-//       <Skeleton height={20} width={200} style={{ marginTop: "10px" }} />
-//     </div>
-//   );
-// }
-
 import * as React from "react";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";

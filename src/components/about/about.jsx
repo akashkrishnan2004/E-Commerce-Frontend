@@ -1,13 +1,3 @@
-// export default function About() {
-//   return (
-//     <div>
-//       <h1>About Us</h1>
-//     </div>
-//   );
-// }
-
-import React, { useEffect, useState } from "react";
-
 import "./About.css";
 
 export default function About  () {
@@ -27,11 +17,11 @@ export default function About  () {
         <p>
           Thank you for choosing us - we're excited to help you find your perfect mobile device!
         </p>
-        {/* <p>
+        <p>
           With love
           <br />
           Team <strong>Phonix</strong>
-        </p> */}
+        </p>
       </div>
     </div>
   );

@@ -1,35 +1,16 @@
-// Main
-// import { useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-
-// export default function ProductAdd() {
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const isAdmin = localStorage.getItem("isAdmin");
-//     if (isAdmin !== "true") {
-//       navigate("/admin/login");
-//     }
-//   }, [navigate]);
-
-//   return (
-//     <div>
-//       <h1>Product Add Page</h1>
-//     </div>
-//   );
-// }
-// Main
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 import "./adminCss/produtAdd.css";
 
 export default function ProductAdd() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+
+  const initialState = {
     modelName: "",
     brand: "",
     description: "",
@@ -45,10 +26,13 @@ export default function ProductAdd() {
     discount: {
       percentage: "",
     },
-    images: new Array(5).fill(""),
-    color: "",
-  });
+    images: Array(5).fill(""),
+  };
 
+  const [formData, setFormData] = useState(initialState);
+  const [loading, setLoading] = useState(false);
+
+  // 🔐 Admin protection
   useEffect(() => {
     const isAdmin = localStorage.getItem("isAdmin");
     if (isAdmin !== "true") {
@@ -56,24 +40,27 @@ export default function ProductAdd() {
     }
   }, [navigate]);
 
+  // 📷 Handle image upload
   const handleImageChange = (e, index) => {
     const file = e.target.files[0];
     if (!file) return;
 
     const reader = new FileReader();
     reader.onloadend = () => {
-      const newImages = [...formData.images];
-      newImages[index] = reader.result;
-      setFormData((prev) => ({
-        ...prev,
-        images: newImages,
-      }));
+      setFormData((prev) => {
+        const updatedImages = [...prev.images];
+        updatedImages[index] = reader.result;
+        return { ...prev, images: updatedImages };
+      });
     };
+
     reader.readAsDataURL(file);
   };
 
+  // 📝 Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     if (name === "percentage") {
       setFormData((prev) => ({
         ...prev,
@@ -90,68 +77,60 @@ export default function ProductAdd() {
     }
   };
 
+  // 🚀 Submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.images.some((img) => !img)) {
-      toast.error("Please upload all 5 images.");
-      return;
-    }
+    // 🔎 Validate images properly
+    const validImages = formData.images.filter(
+      (img) => img && img.trim() !== "",
+    );
 
-    // ✅ Convert color string to array
-    const colorArray = formData.color
-      .split(",")
-      .map((c) => c.trim())
-      .filter((c) => c);
-
-    if (colorArray.length === 0) {
-      toast.error("Please provide at least one color.");
+    if (validImages.length !== 5) {
+      toast.error("Please upload exactly 5 images.");
       return;
     }
 
     const preparedData = {
       ...formData,
-      color: colorArray,
+      images: validImages, // important
       price: Number(formData.price),
       stock: Number(formData.stock),
       discount: {
-        percentage: Number(formData.discount.percentage),
+        percentage: Number(formData.discount.percentage) || 0,
       },
     };
 
     try {
+      setLoading(true);
+
       const res = await axios.post(
-        "http://localhost:3000/api/create-product",
-        preparedData
+        `${API_URL}/api/create-product`,
+        preparedData,
       );
+
       toast.success(res.data.message);
-      setFormData({
-        modelName: "",
-        brand: "",
-        description: "",
-        price: "",
-        ram: "",
-        storage: "",
-        battery: "",
-        processor: "",
-        camera: "",
-        displaySize: "",
-        os: "",
-        stock: "",
-        discount: { percentage: "" },
-        images: new Array(5).fill(""),
-        color: "",
-      });
+
+      setFormData(initialState);
       navigate("/admin/dashboard");
     } catch (error) {
-      console.error("Error:", error);
-      toast.error("Failed to add product.");
+      console.error("Full Error:", error);
+      console.log("Backend Error:", error.response?.data);
+
+      if (error.response) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("Server error. Try again.");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="add-product-container">
       <h1>Add New Mobile</h1>
+
       <form onSubmit={handleSubmit}>
         <input
           name="modelName"
@@ -160,6 +139,7 @@ export default function ProductAdd() {
           onChange={handleChange}
           required
         />
+
         <input
           name="brand"
           placeholder="Brand"
@@ -167,19 +147,24 @@ export default function ProductAdd() {
           onChange={handleChange}
           required
         />
+
         <textarea
           name="description"
           placeholder="Description"
           value={formData.description}
           onChange={handleChange}
         />
+
         <input
+          type="number"
           name="price"
           placeholder="Price"
           value={formData.price}
           onChange={handleChange}
+          min="0"
           required
         />
+
         <input
           name="ram"
           placeholder="RAM"
@@ -187,6 +172,7 @@ export default function ProductAdd() {
           onChange={handleChange}
           required
         />
+
         <input
           name="storage"
           placeholder="Storage"
@@ -194,6 +180,7 @@ export default function ProductAdd() {
           onChange={handleChange}
           required
         />
+
         <input
           name="battery"
           placeholder="Battery"
@@ -201,6 +188,7 @@ export default function ProductAdd() {
           onChange={handleChange}
           required
         />
+
         <input
           name="processor"
           placeholder="Processor"
@@ -208,6 +196,7 @@ export default function ProductAdd() {
           onChange={handleChange}
           required
         />
+
         <input
           name="camera"
           placeholder="Camera"
@@ -215,6 +204,7 @@ export default function ProductAdd() {
           onChange={handleChange}
           required
         />
+
         <input
           name="displaySize"
           placeholder="Display Size"
@@ -222,6 +212,7 @@ export default function ProductAdd() {
           onChange={handleChange}
           required
         />
+
         <input
           name="os"
           placeholder="Operating System"
@@ -229,41 +220,44 @@ export default function ProductAdd() {
           onChange={handleChange}
           required
         />
+
         <input
-          name="color"
-          placeholder="Colors (coma seperated, eg. Black, Blue, Silver)"
-          value={formData.color}
-          onChange={handleChange}
-        />
-        <input
+          type="number"
           name="stock"
           placeholder="Stock"
           value={formData.stock}
           onChange={handleChange}
+          min="0"
           required
         />
+
         <input
+          type="number"
           name="percentage"
           placeholder="Discount (%)"
           value={formData.discount.percentage}
           onChange={handleChange}
+          min="0"
+          max="100"
         />
 
         <div className="image-upload-group">
           <p>Upload 5 Images:</p>
-          <p>Nb : Image 1 will be profile image</p>
+          <p>NB: Image 1 will be profile image</p>
+
           {formData.images.map((_, index) => (
             <input
               key={index}
               type="file"
               accept="image/*"
               onChange={(e) => handleImageChange(e, index)}
-              required
             />
           ))}
         </div>
 
-        <button type="submit">Add Product</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Adding..." : "Add Product"}
+        </button>
       </form>
     </div>
   );
