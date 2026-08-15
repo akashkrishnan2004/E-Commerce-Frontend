@@ -1,0 +1,169 @@
+/* ===== Page Container ===== */
+.admin-container {
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.admin-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+/* ===== Form Card ===== */
+.form-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.form-card select,
+.form-card input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  min-width: 200px;
+  transition: 0.3s ease;
+}
+
+.form-card select:focus,
+.form-card input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.add-btn {
+  background: #007bff;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.add-btn:hover {
+  background: #0056b3;
+}
+
+.cancel-btn {
+  background: #dc3545;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: #b02a37;
+}
+
+/* ===== Banner List Card ===== */
+.banner-card {
+  background: #ffffff;
+  padding: 18px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.banner-card:hover {
+  transform: translateY(-2px);
+}
+
+.banner-image {
+    height: 500px;
+    width: 500px;
+    object-fit: contain;
+    
+}
+
+.banner-info {
+  font-size: 15px;
+  color: #333;
+}
+
+.banner-info strong {
+  color: #000;
+}
+
+.banner-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Buttons ===== */
+.action-btn {
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  margin-left: 8px;
+  transition: 0.3s ease;
+}
+
+.activate-btn {
+  background: #28a745;
+  color: white;
+}
+
+.activate-btn:hover {
+  background: #1e7e34;
+}
+
+.deactivate-btn {
+  background: #ffc107;
+  color: black;
+}
+
+.deactivate-btn:hover {
+  background: #e0a800;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #b02a37;
+}
+
+.action-btn-edit-btn {
+  background: #1e7e34;
+  border: none;
+  color: #ddd;
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  margin-left: 8px;
+  transition: 0.3s ease;
+}
+
+.action-btn-edit-btn:hover {
+  background: #28a745;
+}

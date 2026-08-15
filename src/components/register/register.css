@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -139,7 +139,7 @@ body {
 .register-form .already-login a:hover {
   text-decoration: underline;
   color: #007bff;
-}
+} */
 /* 
 @media screen and (max-width: 768px) {
   .register-container {
@@ -160,3 +160,158 @@ body {
     flex-direction: column;
   }
 } */
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.register-container {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ================= LEFT IMAGE SECTION ================= */
+
+.register-image-card {
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.register-image-card img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.register-image-card-des {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+}
+
+.register-image-card .register-head,
+.register-image-card .register-para {
+  color: #fff;
+}
+
+/* ================= RIGHT FORM SECTION ================= */
+
+.register-card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.register-form .profile-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.register-form .image-file {
+  display: none;
+}
+
+.register-form-name {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.register-form-name input {
+  flex: 1;
+}
+
+.register-form input,
+.register-form button {
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.register-form input {
+  border: 1px solid rgb(183, 178, 178);
+}
+
+.register-form input:focus {
+  outline: 1px solid #007bff;
+}
+
+.register-form button {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-form button:hover {
+  background-color: #0056b3;
+}
+
+.register-form .error-message {
+  font-size: 13px;
+  color: red;
+}
+
+.register-form .already-login a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* ================= RESPONSIVE SECTION ================= */
+
+@media screen and (max-width: 768px) {
+  body {
+    background-color: #f5f7fa;
+  }
+
+  .register-container {
+    flex-direction: column;
+  }
+
+  /* Hide left image section on mobile */
+  .register-image-card {
+    display: none;
+  }
+
+  /* Make form full width */
+  .register-card {
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  /* First & Last name stacked */
+  .register-form-name {
+    /* flex-direction: column; */
+  }
+
+  .register-form {
+    padding: 20px;
+  }
+}

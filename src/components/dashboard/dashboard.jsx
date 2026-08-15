@@ -3,6 +3,9 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios, { all } from "axios";
 
+import AnnouncementBanner from "../announcementBanner/announcementBanner";
+import DashboardBanner from "../announcementBanner/dashboardBanner";
+
 const API_URL =  import.meta.env.VITE_API_URL
 
 import "./dashboard.css";
@@ -73,6 +76,8 @@ export default function Dashboard() {
 
   return (
     <div className="home-container">
+      {/* <AnnouncementBanner /> */}
+      <DashboardBanner />
       <nav className="home-nav">
         <h1>Shop Now</h1>
         <input

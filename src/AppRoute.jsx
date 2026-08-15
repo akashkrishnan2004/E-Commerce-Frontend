@@ -26,6 +26,7 @@ import AdminReviews from "./components/adminPage/appReviews";
 import SiteReviews from "./components/reviews/siteReviews";
 
 import InactivityLogout from "./components/autoLogout/inactivityLogout";
+import AdminAnnouncement from "./components/adminPage/adminAnnouncement";
 
 export default function AppRoute() {
   return (
@@ -63,6 +64,7 @@ export default function AppRoute() {
         <Route path="/admin/product-add" element={<ProductAdd />} />
         <Route path="/admin/product-edit/:id" element={<ProductEdit />} />
         <Route path="/admin/app-reviews" element={<AdminReviews />} />
+        <Route path="/admin/announcements" element={<AdminAnnouncement />} />
       </Routes>
     </BrowserRouter>
   );

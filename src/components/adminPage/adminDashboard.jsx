@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const API_URL =  import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL;
 
 import "./adminCss/adminDashboard.css";
 
@@ -73,12 +73,12 @@ export default function AdminDashboard() {
   const handleToggleShow = async (id) => {
     try {
       const response = await axios.patch(
-        `${API_URL}/api/toggle-show-product/${id}`
+        `${API_URL}/api/toggle-show-product/${id}`,
       );
       toast.success(
         response.data.showOnSite
           ? "Product is now visible on site"
-          : "Product hidden from site"
+          : "Product hidden from site",
       );
       fetchProducts();
     } catch (err) {
@@ -90,10 +90,10 @@ export default function AdminDashboard() {
   const handelAddLable = async (id) => {
     try {
       const response = await axios.patch(
-        `${API_URL}/api/toggle-add-label/${id}`
+        `${API_URL}/api/toggle-add-label/${id}`,
       );
       toast.success(
-        response.data.showLabel ? "Added the label" : "Removed the label"
+        response.data.showLabel ? "Added the label" : "Removed the label",
       );
       fetchProducts();
     } catch (error) {
@@ -113,6 +113,9 @@ export default function AdminDashboard() {
           </Link>
           <Link to="/admin/app-reviews">
             <button>View App Reviews</button>
+          </Link>
+          <Link to="/admin/announcements">
+            <button>Manage Banners</button>
           </Link>
 
           <button onClick={handleLogout}>Logout</button>

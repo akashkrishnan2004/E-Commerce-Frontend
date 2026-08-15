@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -101,4 +101,142 @@ body {
 .login-form .need-register a:hover {
   text-decoration: underline;
   color: #007bff;
+} */
+
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-container {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ================= LEFT FORM SECTION ================= */
+
+.login-card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form input,
+.login-form button {
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.login-form input {
+  border: 1px solid rgb(183, 178, 178);
+}
+
+.login-form input:focus {
+  outline: 1px solid #007bff;
+}
+
+.login-form input::placeholder {
+  color: #aaa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-form .forgot-password {
+  color: #007bff;
+  align-self: flex-end;
+  font-size: 14px;
+}
+
+.login-form .forgot-password:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-form button {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+.login-form .need-register {
+  font-size: 15px;
+}
+
+.login-form .need-register a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.login-form .need-register a:hover {
+  text-decoration: underline;
+}
+
+/* ================= RIGHT IMAGE SECTION ================= */
+
+.login-image-card {
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.login-image-card img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ================= RESPONSIVE SECTION ================= */
+
+@media screen and (max-width: 768px) {
+
+  .login-container {
+    flex-direction: column;
+  }
+
+  /* Hide image on mobile */
+  .login-image-card {
+    display: none;
+  }
+
+  /* Make form full width */
+  .login-card {
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  .login-form {
+    padding: 20px;
+  }
+
+  body {
+    background-color: #f5f7fa;
+  }
 }

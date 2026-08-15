@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 const API_URL = import.meta.env.VITE_API_URL
 
-import "./Contact.css";
+import "./contact.css";
 
 export default function Contact() {
   const [message, setMessage] = useState("");
